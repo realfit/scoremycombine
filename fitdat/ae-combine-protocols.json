@@ -1,0 +1,405 @@
+{
+  "_comment": "FITDAT Protocol Documents — Aging Evolution Combine v1.0",
+  "_note": "Three new Tests, two new Protocols on existing Tests. Draft status pending REALFIT governance review.",
+
+  "tests": [
+
+    {
+      "testId": "test_ae_golf_long_drive",
+      "version": "1.0.0",
+      "name": "Golf Long Drive — Simulator Carry",
+      "publishingAuthority": "REALFIT",
+      "construct": "Maximum carry distance achieved with a golf club from a stationary address position, measured by indoor launch monitor. Expresses total-body rotational power, clubhead speed, and kinetic chain efficiency.",
+      "primaryComponent": "power",
+      "secondaryComponents": ["speed", "agility"],
+      "inputType": "distance",
+      "canonicalUnit": "yards",
+      "scoringDirection": "higher",
+      "normalizationRule": null,
+      "replacementGroupId": null,
+      "certificationEligible": true,
+      "protocols": [
+        {
+          "protocolId": "proto_ae_golf_long_drive_v1",
+          "version": "1.0.0",
+          "description": "Athlete addresses the ball on an indoor golf simulator mat at a certified AE Combine facility. Any club is permitted — club selection is the athlete's choice. The athlete takes 6 swings. Carry distance (yards) for each swing is recorded by the launch monitor. The best (longest) carry across all 6 swings is the official result. Total distance (carry + roll) is not used — carry only.",
+          "startCondition": "Stationary address position behind the ball on the simulator mat. No running start. Stance and grip are unrestricted.",
+          "equipmentRequired": [
+            "Certified indoor golf simulator with launch monitor (Trackman, Foresight GC Quad, or equivalent)",
+            "Regulation golf balls (simulator-approved)",
+            "Athlete's own clubs or provided clubs — any legal club permitted"
+          ],
+          "equipmentProfile": "professional",
+          "timingMethod": "n/a",
+          "measurementStandard": "Carry distance to the nearest 1 yard as reported by the launch monitor. Best of 6 swings is the official result. Launch monitor must be certified and calibrated before each session.",
+          "invalidationRules": [
+            "Swing taken from outside the designated hitting zone on the simulator mat",
+            "Launch monitor sensor error or misread — shot must be retaken",
+            "Athlete leaves stationary address position with a running approach before contact"
+          ],
+          "status": "active"
+        }
+      ],
+      "context": {
+        "sportTags": ["golf", "long_drive", "combine_general"],
+        "settingTags": ["indoor", "simulator"],
+        "populationTags": ["general_adult", "masters", "senior", "recreational", "competitive_amateur"],
+        "coachingNotes": "Any club is legal — in practice, driver is the only realistic path to the 300-yard AE Combine standard for most athletes. Athletes should take warm-up swings before the official session begins. Launch monitor carry distance (not total distance) is the sole measurement. Officials must verify the monitor is calibrated at the start of each athlete's session. Misreads should be flagged immediately and the swing retaken before the athlete resets.",
+        "ecosystemRelevance": {
+          "member": 0.70,
+          "team": 0.40,
+          "organization": 0.60,
+          "affiliate": 0.85,
+          "official": 0.90
+        }
+      },
+      "status": "active",
+      "createdAt": "2026-10-20T00:00:00Z",
+      "updatedAt": "2026-10-20T00:00:00Z"
+    },
+
+    {
+      "testId": "test_ae_football_throw",
+      "version": "1.0.0",
+      "name": "Football Throw Distance",
+      "publishingAuthority": "REALFIT",
+      "construct": "Maximum airborne distance achieved throwing a regulation football from the 50-yard line, with a running approach permitted. Expresses total-body power, arm strength, and throwing mechanics under a sport-specific task.",
+      "primaryComponent": "power",
+      "secondaryComponents": ["muscular_strength", "speed"],
+      "inputType": "distance",
+      "canonicalUnit": "yards",
+      "scoringDirection": "higher",
+      "normalizationRule": null,
+      "replacementGroupId": null,
+      "certificationEligible": true,
+      "protocols": [
+        {
+          "protocolId": "proto_ae_football_throw_v1",
+          "version": "1.0.0",
+          "description": "Athlete begins behind or at the 50-yard line of a regulation football field (or equivalent marked surface). A running approach of any length behind the line is permitted — the throwing arm must release the ball at or behind the 50-yard line. Athlete takes 3 throws. Each throw is measured from the 50-yard line to the point where the ball first contacts the ground (not where it rolls to). The best (longest) throw is the official result, recorded to the nearest half-yard. Throws are assessed for validity before distance is recorded.",
+          "startCondition": "Athlete may begin their approach from any point behind the 50-yard line. Release point must be at or behind the line — a certified official confirms release position. No restriction on throwing style (overhand required is not mandated, but overhand is the expected technique).",
+          "equipmentRequired": [
+            "Regulation NFL or NCAA football (leather, game condition)",
+            "Measured and marked football field or equivalent surface",
+            "Measuring tape or laser distance tool calibrated to 0.5-yard precision",
+            "Two certified officials — one to confirm release position, one to mark landing point"
+          ],
+          "equipmentProfile": "standard",
+          "timingMethod": "n/a",
+          "measurementStandard": "Distance measured from the 50-yard line (release line) to the first point of ground contact. Recorded to the nearest half-yard (e.g., 54.5 yards). Best of 3 throws is the official result.",
+          "invalidationRules": [
+            "Release point is beyond the 50-yard line — official must confirm before throw is measured",
+            "Ball contacts a person, object, or obstruction before landing",
+            "Ball is not a regulation football or is in non-game condition",
+            "Athlete is unable to safely complete the approach — throw may be reattempted at official's discretion"
+          ],
+          "status": "active"
+        }
+      ],
+      "context": {
+        "sportTags": ["football", "combine_general", "throwing"],
+        "settingTags": ["field", "outdoor_general"],
+        "populationTags": ["general_adult", "masters", "senior", "recreational", "former_athlete"],
+        "coachingNotes": "The AE Combine standard is reaching the end zone — a throw of 50 yards or more from the 50-yard line. Officials should mark the 50-yard line clearly and have a second marker at the goal line (50 yards). For measurement, a certified official stands at the approximate landing zone and marks the first contact point; a second official confirms the release was at or behind the line. Athletes should warm up their arm before official throws. Measure immediately after landing; do not allow the ball to roll before marking.",
+        "ecosystemRelevance": {
+          "member": 0.65,
+          "team": 0.50,
+          "organization": 0.55,
+          "affiliate": 0.80,
+          "official": 0.85
+        }
+      },
+      "status": "active",
+      "createdAt": "2026-10-20T00:00:00Z",
+      "updatedAt": "2026-10-20T00:00:00Z"
+    },
+
+    {
+      "testId": "test_ae_baseball_pitch",
+      "version": "1.0.0",
+      "name": "Baseball Pitch Speed",
+      "publishingAuthority": "REALFIT",
+      "construct": "Maximum pitching velocity achieved over 5 pitches, measured by calibrated radar gun. Expresses total-body rotational power, arm speed, and throwing mechanics under a sport-specific task.",
+      "primaryComponent": "power",
+      "secondaryComponents": ["speed", "muscular_strength"],
+      "inputType": "secondsOnly",
+      "canonicalUnit": "mph",
+      "scoringDirection": "higher",
+      "normalizationRule": null,
+      "replacementGroupId": null,
+      "certificationEligible": true,
+      "protocols": [
+        {
+          "protocolId": "proto_ae_baseball_pitch_v1",
+          "version": "1.0.0",
+          "description": "Athlete pitches from a regulation pitching rubber (or equivalent marked position at standard mound distance — 60 feet 6 inches) toward a catcher or backstop. A calibrated radar gun captures the velocity of each pitch. Athlete takes 5 pitches; the fastest reading is the official result. Placement, ball-in-zone, and pitch type are unrestricted — the sole measurement is peak velocity. Pitching style (overhand, sidearm, submarine) is at the athlete's discretion.",
+          "startCondition": "Athlete begins from the pitching rubber or equivalent marked position at regulation distance (60 feet 6 inches from the front of the rubber to the back of home plate). No restriction on windup, stretch, or pitching style.",
+          "equipmentRequired": [
+            "Calibrated radar gun (Stalker Pro II, Jugs Gun, or equivalent certified device)",
+            "Regulation baseball (leather, game condition)",
+            "Pitching rubber or marked equivalent at 60 feet 6 inches",
+            "Catcher, backstop net, or equivalent target"
+          ],
+          "equipmentProfile": "standard",
+          "timingMethod": "n/a",
+          "measurementStandard": "Velocity recorded to the nearest 1 mph by radar gun. Best (fastest) of 5 pitches is the official result. Radar gun must be positioned directly behind the catcher or along the flight path of the pitch per manufacturer calibration guidelines.",
+          "invalidationRules": [
+            "Pitch released from beyond the regulation distance — must be reattempted from correct position",
+            "Radar gun misread or equipment fault — official may allow a replacement pitch at their discretion",
+            "Ball not a regulation baseball or in non-game condition"
+          ],
+          "status": "active"
+        }
+      ],
+      "context": {
+        "sportTags": ["baseball", "softball", "combine_general", "throwing"],
+        "settingTags": ["field", "indoor", "outdoor_general"],
+        "populationTags": ["general_adult", "masters", "senior", "recreational", "former_athlete"],
+        "coachingNotes": "The AE Combine standard is 80 mph. Athletes should warm up their arm thoroughly before official pitches — minimum 10–15 warm-up throws recommended. Any pitching style is legal; officials should not restrict mechanics. Radar gun placement is critical for accuracy — position directly behind the catcher along the ball flight path. All 5 pitches should be recorded; officials call out each reading so athletes know their best mark going into each subsequent pitch.",
+        "ecosystemRelevance": {
+          "member": 0.65,
+          "team": 0.50,
+          "organization": 0.55,
+          "affiliate": 0.80,
+          "official": 0.85
+        }
+      },
+      "status": "active",
+      "createdAt": "2026-10-20T00:00:00Z",
+      "updatedAt": "2026-10-20T00:00:00Z"
+    },
+
+    {
+      "testId": "test_tennis_serve_speed",
+      "version": "1.0.0",
+      "name": "Tennis Serve Speed",
+      "publishingAuthority": "REALFIT",
+      "construct": "Maximum serve velocity achieved over a fixed number of attempts, measured by radar gun. Expresses total-body rotational power, shoulder speed, and overhead striking mechanics. Placement and ball landing position are not assessed.",
+      "primaryComponent": "power",
+      "secondaryComponents": ["speed", "muscular_strength"],
+      "inputType": "secondsOnly",
+      "canonicalUnit": "mph",
+      "scoringDirection": "higher",
+      "normalizationRule": null,
+      "replacementGroupId": null,
+      "certificationEligible": true,
+      "protocols": [
+        {
+          "protocolId": "proto_ae_tennis_serve_speed_v1",
+          "version": "1.0.0",
+          "description": "Athlete serves from behind the baseline on a regulation tennis court (or equivalent surface with marked baseline). A calibrated radar gun captures the velocity of each serve. Athlete takes 5 serves; the fastest reading is the official result. Whether the ball lands in or out of the service box is irrelevant — velocity only is assessed. Serve type (flat, slice, kick) and grip are at the athlete's discretion.",
+          "startCondition": "Athlete serves from behind the baseline. Any standard service position is permitted. No restriction on serve type, grip, or motion.",
+          "equipmentRequired": [
+            "Calibrated radar gun (Stalker Pro II or equivalent certified device)",
+            "Regulation tennis ball (ITF-approved)",
+            "Tennis court with marked baseline, or equivalent surface with marked service position",
+            "Net optional — ball landing position is not assessed"
+          ],
+          "equipmentProfile": "standard",
+          "timingMethod": "n/a",
+          "measurementStandard": "Velocity recorded to the nearest 1 mph by radar gun. Best (fastest) of 5 serves is the official result. Radar gun positioned to capture ball velocity immediately after racquet contact per manufacturer guidelines.",
+          "invalidationRules": [
+            "Serve released from in front of the baseline — must be reattempted from correct position",
+            "Radar gun misread or equipment fault — official may allow a replacement serve at their discretion",
+            "Ball not a regulation ITF-approved tennis ball"
+          ],
+          "status": "active"
+        }
+      ],
+      "context": {
+        "sportTags": ["tennis", "combine_general"],
+        "settingTags": ["outdoor_general", "indoor", "field"],
+        "populationTags": ["general_adult", "masters", "senior", "recreational", "competitive_amateur"],
+        "coachingNotes": "The AE Combine standard is 120 mph — an elite threshold that reflects genuine power and technique. Athletes should warm up with practice serves before official attempts. Since placement doesn't count, athletes should prioritize flat serves for maximum velocity. All 5 serves are recorded; officials call out each reading. Radar gun should be positioned directly behind the serve flight path for accuracy.",
+        "ecosystemRelevance": {
+          "member": 0.60,
+          "team": 0.45,
+          "organization": 0.55,
+          "affiliate": 0.80,
+          "official": 0.85
+        }
+      },
+      "status": "active",
+      "createdAt": "2026-10-20T00:00:00Z",
+      "updatedAt": "2026-10-20T00:00:00Z"
+    }
+  ],
+
+  "new_protocols_on_existing_tests": [
+    {
+      "_note": "New protocol on existing test_40yd_dash for the AE Combine context. The base test is unchanged — this protocol adds AE-specific administration context.",
+      "parentTestId": "test_40yd_dash",
+      "protocolId": "proto_ae_40yd_dash_v1",
+      "version": "1.0.0",
+      "description": "Standard 40-yard dash administered under AE Combine conditions. Athlete sprints 40 yards from a stationary start on a flat surface (track or field turf). Electronic timing gates capture the time from first movement. 2 attempts are permitted; the fastest valid time is the official result.",
+      "startCondition": "Stationary start. Athlete self-initiates — timing begins on first movement. No blocks permitted. Any stance (two-point, three-point) is permitted.",
+      "equipmentRequired": [
+        "Electronic timing system with start gate and finish gate (Freelap, Brower Timing, or equivalent certified system)",
+        "Flat surface — track (rubber or synthetic) or field turf",
+        "Measured and marked 40-yard distance"
+      ],
+      "equipmentProfile": "professional",
+      "timingMethod": "electronic",
+      "measurementStandard": "Nearest 0.01 seconds. Best of 2 attempts is the official result. Both attempts are recorded.",
+      "invalidationRules": [
+        "False start — any movement triggering the gate before the athlete is set",
+        "Distance not verified and marked before the session begins",
+        "Timing system malfunction — attempt may be reattempted at official's discretion"
+      ],
+      "status": "active"
+    }
+  ],
+
+  "score_set": {
+    "scoreSetId": "scoreset_ae_combine_v1",
+    "version": "1.0.0",
+    "name": "Aging Evolution Combine",
+    "publishingAuthority": "REALFIT",
+    "audience": "Masters and senior athletes (40+) competing in the Aging Evolution Combine — five independent sport challenges judged by age.",
+    "intendedPurpose": "The AE Combine Score Set governs five independent challenges — Golf Long Drive, 40-Yard Dash, Football Throw, Tennis Serve Speed, and Baseball Pitch Speed. Each challenge is judged independently: the winner of each is the oldest athlete whose result meets or exceeds the published standard for that challenge. There is no composite score across challenges. An athlete may enter one, several, or all five challenges.\n\nThis is a feedback_only Score Set. No points are assigned, no aggregate is computed. The meaningful output for each challenge is: (a) the athlete's measured result, (b) whether the result met the standard, and (c) the athlete's age. The winner determination — oldest qualifier — is a competition rule, not a scoring calculation in the FITDAT sense.\n\nUse this Score Set for: official AE Combine result recording, leaderboard display, and certified result issuance. Do NOT use it to produce a composite 'combine score' across all five challenges — no such aggregate is defined or meaningful in this competition format. Do NOT use individual challenge results to compare athletes across age groups in a percentile sense — the AE Combine is not a percentile-normed assessment; it is a threshold competition where age is the deciding factor among qualifiers.",
+    "fitdatVersion": "1.1.0",
+    "archetype": "feedback_only",
+    "modifiers": [],
+    "testSelections": [
+      {
+        "testRef":        { "id": "test_ae_golf_long_drive",  "version": "1.0.0" },
+        "protocolRef":    { "id": "proto_ae_golf_long_drive_v1", "version": "1.0.0" },
+        "standardSetRef": { "id": "std_ae_golf_long_drive_open", "version": "1.0.0" },
+        "scoring":        { "type": "feedback_only" },
+        "weight":         null,
+        "isRequired":     false
+      },
+      {
+        "testRef":        { "id": "test_40yd_dash",       "version": "1.0.0" },
+        "protocolRef":    { "id": "proto_ae_40yd_dash_v1","version": "1.0.0" },
+        "standardSetRef": { "id": "std_ae_40yd_dash_open","version": "1.0.0" },
+        "scoring":        { "type": "feedback_only" },
+        "weight":         null,
+        "isRequired":     false
+      },
+      {
+        "testRef":        { "id": "test_ae_football_throw",  "version": "1.0.0" },
+        "protocolRef":    { "id": "proto_ae_football_throw_v1", "version": "1.0.0" },
+        "standardSetRef": { "id": "std_ae_football_throw_open", "version": "1.0.0" },
+        "scoring":        { "type": "feedback_only" },
+        "weight":         null,
+        "isRequired":     false
+      },
+      {
+        "testRef":        { "id": "test_tennis_serve_speed",    "version": "1.0.0" },
+        "protocolRef":    { "id": "proto_ae_tennis_serve_speed_v1", "version": "1.0.0" },
+        "standardSetRef": { "id": "std_ae_tennis_serve_speed_open", "version": "1.0.0" },
+        "scoring":        { "type": "feedback_only" },
+        "weight":         null,
+        "isRequired":     false
+      },
+      {
+        "testRef":        { "id": "test_ae_baseball_pitch",  "version": "1.0.0" },
+        "protocolRef":    { "id": "proto_ae_baseball_pitch_v1", "version": "1.0.0" },
+        "standardSetRef": { "id": "std_ae_baseball_pitch_open", "version": "1.0.0" },
+        "scoring":        { "type": "feedback_only" },
+        "weight":         null,
+        "isRequired":     false
+      }
+    ],
+    "referenceBands": [],
+    "displayPolicy": {
+      "overall": "hide",
+      "perTest": "show_both"
+    },
+    "certificationWindow": { "durationDays": 1, "resetOnRetake": false },
+    "tierPolicy": {
+      "acceptedTiers": ["tier_2"],
+      "requiresOfficialForOverall": true
+    },
+    "status": "draft",
+    "createdAt": "2026-10-20T00:00:00Z",
+    "updatedAt": "2026-10-20T00:00:00Z"
+  },
+
+  "standard_sets": {
+    "_note": "One StandardSet per challenge using anchor_points distribution. The single anchor point is the qualifying standard. All reference bands use the same two-label pattern: 'Qualifier' (met standard) and 'Participant' (did not meet standard).",
+    "sets": [
+      {
+        "standardSetId": "std_ae_golf_long_drive_open",
+        "name": "AE Combine — Golf Long Drive (Open)",
+        "testRef":       { "id": "test_ae_golf_long_drive",     "version": "1.0.0" },
+        "protocolRef":   { "id": "proto_ae_golf_long_drive_v1", "version": "1.0.0" },
+        "populationRef": { "id": "pop_neutral",                  "version": "1.0.0" },
+        "distributionType": "anchor_points",
+        "distribution": { "points": [ { "label": "AE Combine qualifying standard", "value": 300 } ] },
+        "unit": "yards",
+        "referenceBands": [
+          { "min": 300,  "max": null, "label": "Qualifier", "feedback": "Carry of 300 yards or more. Eligible to win the challenge — oldest qualifier wins." },
+          { "min": null, "max": 299,  "label": "Participant", "feedback": "Below the 300-yard qualifying standard. Result is recorded." }
+        ],
+        "derivation": "Single threshold set at the AE Combine qualifying standard of 300 yards carry.",
+        "status": "draft"
+      },
+      {
+        "standardSetId": "std_ae_40yd_dash_open",
+        "name": "AE Combine — 40-Yard Dash (Open)",
+        "testRef":       { "id": "test_40yd_dash",        "version": "1.0.0" },
+        "protocolRef":   { "id": "proto_ae_40yd_dash_v1", "version": "1.0.0" },
+        "populationRef": { "id": "pop_neutral",            "version": "1.0.0" },
+        "distributionType": "anchor_points",
+        "distribution": { "points": [ { "label": "AE Combine qualifying standard", "value": 5.00 } ] },
+        "unit": "seconds",
+        "referenceBands": [
+          { "min": null, "max": 5.00, "label": "Qualifier", "feedback": "5.00 seconds or faster. Eligible to win the challenge — oldest qualifier wins." },
+          { "min": 5.01, "max": null, "label": "Participant", "feedback": "Above the 5.00-second qualifying standard. Result is recorded." }
+        ],
+        "derivation": "Single threshold set at the AE Combine qualifying standard of 5.00 seconds. Lower is better.",
+        "status": "draft"
+      },
+      {
+        "standardSetId": "std_ae_football_throw_open",
+        "name": "AE Combine — Football Throw Distance (Open)",
+        "testRef":       { "id": "test_ae_football_throw",     "version": "1.0.0" },
+        "protocolRef":   { "id": "proto_ae_football_throw_v1", "version": "1.0.0" },
+        "populationRef": { "id": "pop_neutral",                 "version": "1.0.0" },
+        "distributionType": "anchor_points",
+        "distribution": { "points": [ { "label": "AE Combine qualifying standard — reach the end zone", "value": 50 } ] },
+        "unit": "yards",
+        "referenceBands": [
+          { "min": 50,   "max": null, "label": "Qualifier", "feedback": "50 yards or more from the 50-yard line — ball reached the end zone. Eligible to win the challenge — oldest qualifier wins." },
+          { "min": null, "max": 49.5, "label": "Participant", "feedback": "Did not reach the end zone. Result is recorded." }
+        ],
+        "derivation": "Single threshold: throw must reach the end zone from the 50-yard line (50+ yards). Measured to nearest half-yard.",
+        "status": "draft"
+      },
+      {
+        "standardSetId": "std_ae_tennis_serve_speed_open",
+        "name": "AE Combine — Tennis Serve Speed (Open)",
+        "testRef":       { "id": "test_tennis_serve_speed",        "version": "1.0.0" },
+        "protocolRef":   { "id": "proto_ae_tennis_serve_speed_v1", "version": "1.0.0" },
+        "populationRef": { "id": "pop_neutral",                     "version": "1.0.0" },
+        "distributionType": "anchor_points",
+        "distribution": { "points": [ { "label": "AE Combine qualifying standard", "value": 120 } ] },
+        "unit": "mph",
+        "referenceBands": [
+          { "min": 120,  "max": null, "label": "Qualifier", "feedback": "120 mph or faster. Eligible to win the challenge — oldest qualifier wins." },
+          { "min": null, "max": 119,  "label": "Participant", "feedback": "Below the 120 mph qualifying standard. Result is recorded." }
+        ],
+        "derivation": "Single threshold set at the AE Combine qualifying standard of 120 mph radar-gun serve velocity.",
+        "status": "draft"
+      },
+      {
+        "standardSetId": "std_ae_baseball_pitch_open",
+        "name": "AE Combine — Baseball Pitch Speed (Open)",
+        "testRef":       { "id": "test_ae_baseball_pitch",     "version": "1.0.0" },
+        "protocolRef":   { "id": "proto_ae_baseball_pitch_v1", "version": "1.0.0" },
+        "populationRef": { "id": "pop_neutral",                 "version": "1.0.0" },
+        "distributionType": "anchor_points",
+        "distribution": { "points": [ { "label": "AE Combine qualifying standard", "value": 80 } ] },
+        "unit": "mph",
+        "referenceBands": [
+          { "min": 80,   "max": null, "label": "Qualifier", "feedback": "80 mph or faster. Eligible to win the challenge — oldest qualifier wins." },
+          { "min": null, "max": 79,   "label": "Participant", "feedback": "Below the 80 mph qualifying standard. Result is recorded." }
+        ],
+        "derivation": "Single threshold set at the AE Combine qualifying standard of 80 mph radar-gun pitch velocity.",
+        "status": "draft"
+      }
+    ]
+  }
+}
