@@ -654,8 +654,10 @@
     }
     .register-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
     .btn-register {
-      background: var(--white);
-      color: var(--ae-red-dark);
+      background: rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.4);
+      cursor: default;
+      pointer-events: none;
       padding: 16px 36px;
       border-radius: 4px;
       font-size: 0.95rem;
@@ -664,7 +666,7 @@
       letter-spacing: 0.02em;
       transition: background 0.2s, color 0.2s;
     }
-    .btn-register:hover { background: #f0f0f0; }
+    .btn-register:hover { background: rgba(255,255,255,0.18); }
 
     /* POWERED BY */
     .powered {
@@ -1031,7 +1033,7 @@
     <p>Applications open soon. Submit your interest now and we'll notify you the moment applications go live for your challenges.</p>
     <p class="register-detail">Dallas–Fort Worth · Spring 2027 · Free to apply</p>
     <div class="register-actions">
-      <a href="mailto:combines@realfit.com?subject=AE Combine 2027 Interest" class="btn-register">Register interest</a>
+      <span class="btn-register">Register (coming soon)</span>
       <a href="/aging-evolution/scoreboard" style="color:rgba(255,255,255,0.75);font-size:0.9rem;font-weight:600;text-decoration:none;padding:16px 0;">View mock scoreboard →</a>
     </div>
   </section>
