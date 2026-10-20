@@ -9,7 +9,6 @@
     :root {
       --blue: #1a4fa0;
       --blue-light: #2563c7;
-      --blue-dark: #12347a;
       --ae-gold: #c9a227;
       --ae-gold-light: #f0c847;
       --gray: #6b7280;
@@ -110,10 +109,7 @@
       padding: 5px 12px;
       border-radius: 3px;
     }
-    .hero-x {
-      color: #475569;
-      font-size: 1rem;
-    }
+    .hero-x { color: #475569; font-size: 1rem; }
     .hero-rf {
       font-size: 0.7rem;
       font-weight: 700;
@@ -132,16 +128,24 @@
       font-style: normal;
       color: var(--ae-gold-light);
     }
+    .hero-tagline {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ae-gold);
+      margin-bottom: 16px;
+    }
     .hero-sub {
       font-size: 1.05rem;
       color: #94a3b8;
-      max-width: 560px;
+      max-width: 600px;
       margin: 0 auto 14px;
       line-height: 1.7;
     }
     .hero-details {
       font-size: 0.85rem;
-      color: var(--ae-gold);
+      color: #64748b;
       font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -173,14 +177,9 @@
     }
     .btn-ghost:hover { border-color: rgba(255,255,255,0.6); }
 
-    /* ABOUT */
-    .section {
-      padding: 80px 24px;
-    }
-    .section-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+    /* SECTIONS */
+    .section { padding: 80px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
     .section-label {
       font-size: 0.72rem;
       font-weight: 700;
@@ -200,28 +199,65 @@
     .section-intro {
       font-size: 1.05rem;
       color: var(--gray);
-      max-width: 680px;
+      max-width: 720px;
       line-height: 1.7;
+      margin-bottom: 48px;
     }
 
-    /* TWO COL */
-    .two-col {
+    /* PRINCIPLE CALLOUT */
+    .principle {
+      background: #0f172a;
+      border-left: 4px solid var(--ae-gold);
+      padding: 28px 32px;
+      border-radius: 0 6px 6px 0;
+      margin: 48px 0;
+    }
+    .principle p {
+      font-size: 1rem;
+      color: #cbd5e1;
+      line-height: 1.75;
+      margin: 0;
+    }
+    .principle strong { color: var(--ae-gold-light); }
+
+    /* TWO AUDIENCES */
+    .two-audience {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: start;
+      gap: 2px;
+      margin-top: 44px;
+    }
+    @media (max-width: 720px) { .two-audience { grid-template-columns: 1fr; } }
+    .audience-block {
+      background: var(--gray-light);
+      padding: 36px 32px;
+    }
+    .audience-block:first-child { border-radius: 8px 0 0 8px; }
+    .audience-block:last-child { border-radius: 0 8px 8px 0; }
+    .audience-label {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ae-gold);
+      margin-bottom: 10px;
+    }
+    .audience-block h3 {
+      font-family: var(--font);
+      font-size: 1.25rem;
+      font-weight: normal;
+      color: var(--black);
+      margin-bottom: 12px;
+    }
+    .audience-block p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.7;
     }
     @media (max-width: 720px) {
-      .two-col { grid-template-columns: 1fr; gap: 40px; }
+      .audience-block:first-child { border-radius: 8px 8px 0 0; }
+      .audience-block:last-child { border-radius: 0 0 8px 8px; }
     }
-    .two-col .col p {
-      font-size: 0.95rem;
-      color: var(--gray);
-      line-height: 1.75;
-      margin-bottom: 16px;
-    }
-    .two-col .col p:last-child { margin-bottom: 0; }
-    .two-col .col strong { color: var(--black); font-weight: 700; }
 
     /* CHALLENGES */
     .challenges-section {
@@ -238,81 +274,243 @@
       color: var(--white);
       margin-bottom: 12px;
     }
-    .challenges-section .section-intro { color: #94a3b8; margin-bottom: 52px; }
+    .challenges-section .section-intro { color: #94a3b8; }
 
-    .challenge-list { display: flex; flex-direction: column; gap: 0; }
-    .challenge-row {
-      display: grid;
-      grid-template-columns: 60px 1fr 1fr 180px;
-      align-items: center;
-      gap: 24px;
-      padding: 28px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+    .challenge-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 40px;
     }
-    .challenge-row:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
-    .ch-num {
-      font-size: 2rem;
-      font-weight: 800;
-      color: rgba(255,255,255,0.1);
-      font-family: var(--font);
-      line-height: 1;
-    }
-    .ch-icon { font-size: 1.8rem; margin-bottom: 4px; }
-    .ch-sport {
+    .challenge-table thead th {
       font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #64748b;
+      color: #475569;
+      text-align: left;
+      padding: 0 0 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .ch-name {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 4px;
+    .challenge-table thead th:last-child { text-align: right; }
+    .challenge-table tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .ch-desc {
-      font-size: 0.85rem;
-      color: #94a3b8;
-      line-height: 1.5;
+    .challenge-table tbody tr:last-child { border-bottom: none; }
+    .challenge-table tbody td {
+      padding: 28px 16px 28px 0;
+      vertical-align: top;
     }
-    .ch-target-box {
-      text-align: right;
-    }
-    .ch-target-label {
-      font-size: 0.65rem;
+    .challenge-table tbody td:last-child { padding-right: 0; text-align: right; }
+
+    .ch-sport-tag {
+      font-size: 0.62rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #475569;
+      color: #64748b;
+      display: block;
       margin-bottom: 4px;
     }
+    .ch-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .ch-what {
+      font-size: 0.83rem;
+      color: #64748b;
+      font-style: italic;
+    }
+    .ch-desc {
+      font-size: 0.875rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      max-width: 340px;
+    }
     .ch-target {
-      font-size: 1.35rem;
+      font-size: 1.6rem;
       font-weight: 800;
       color: var(--ae-gold-light);
+      display: block;
       line-height: 1;
     }
-    .ch-target-unit {
+    .ch-unit {
       font-size: 0.75rem;
-      color: #64748b;
-      margin-top: 2px;
+      color: #475569;
+      display: block;
+      margin-top: 3px;
+    }
+    .ch-measured {
+      font-size: 0.75rem;
+      color: #475569;
+      display: block;
+      margin-top: 8px;
     }
 
     @media (max-width: 640px) {
-      .challenge-row {
-        grid-template-columns: 44px 1fr;
-        gap: 16px;
-      }
-      .ch-num { font-size: 1.4rem; }
-      .ch-target-box { display: none; }
+      .challenge-table thead { display: none; }
+      .challenge-table tbody tr { display: block; padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .challenge-table tbody td { display: block; padding: 4px 0; text-align: left !important; }
+      .ch-target { font-size: 1.3rem; }
+    }
+
+    /* SCHEDULE */
+    .schedule-section { background: var(--gray-light); padding: 80px 24px; }
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 44px;
+    }
+    @media (max-width: 760px) { .schedule-grid { grid-template-columns: 1fr; } }
+    .sched-day {
+      background: var(--white);
+      padding: 28px 24px;
+    }
+    .sched-day:first-child { border-radius: 8px 0 0 8px; }
+    .sched-day:last-child { border-radius: 0 8px 8px 0; }
+    @media (max-width: 760px) {
+      .sched-day:first-child { border-radius: 8px 8px 0 0; }
+      .sched-day:last-child { border-radius: 0 0 8px 8px; }
+      .sched-day:not(:first-child):not(:last-child) { border-radius: 0; }
+    }
+    .sched-day-label {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ae-gold);
+      margin-bottom: 16px;
+    }
+    .sched-event {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--gray-mid);
+    }
+    .sched-event:last-child { border-bottom: none; }
+    .sched-time {
+      font-size: 0.72rem;
+      color: #9ca3af;
+      margin-bottom: 3px;
+    }
+    .sched-challenge {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 2px;
+    }
+    .sched-standard {
+      font-size: 0.8rem;
+      color: var(--ae-gold);
+      font-weight: 600;
+    }
+
+    /* HOW TO ENTER */
+    .enter-section { padding: 80px 24px; }
+    .enter-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+      margin-top: 44px;
+      border: 1px solid var(--gray-mid);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .enter-step {
+      padding: 32px 28px;
+      border-right: 1px solid var(--gray-mid);
+      position: relative;
+    }
+    .enter-step:last-child { border-right: none; }
+    @media (max-width: 640px) {
+      .enter-steps { grid-template-columns: 1fr; }
+      .enter-step { border-right: none; border-bottom: 1px solid var(--gray-mid); }
+      .enter-step:last-child { border-bottom: none; }
+    }
+    .step-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gray-mid);
+      font-family: var(--font);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .enter-step h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    .enter-step p {
+      font-size: 0.83rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* PRICING */
+    .pricing-section {
+      background: #0f172a;
+      padding: 80px 24px;
+    }
+    .pricing-section .section-label { color: var(--ae-gold); }
+    .pricing-section h2 {
+      font-family: var(--font);
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: normal;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .pricing-section .section-intro { color: #94a3b8; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 2px;
+      margin-top: 44px;
+    }
+    .price-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 6px;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .price-card.featured {
+      background: rgba(201,162,39,0.1);
+      border-color: var(--ae-gold);
+    }
+    .price-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 10px;
+    }
+    .price-card.featured .price-label { color: var(--ae-gold); }
+    .price-amount {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .price-note {
+      font-size: 0.78rem;
+      color: #475569;
+      line-height: 1.5;
+    }
+    .price-card.featured .price-note { color: #94a3b8; }
+    .pricing-note {
+      margin-top: 28px;
+      font-size: 0.85rem;
+      color: #475569;
+      text-align: center;
+      line-height: 1.6;
     }
 
     /* CERTIFIED */
-    .certified {
-      background: var(--gray-light);
-      padding: 80px 24px;
-    }
+    .certified { background: var(--gray-light); padding: 80px 24px; }
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -348,6 +546,51 @@
       border-radius: 3px;
       margin-bottom: 44px;
     }
+    .athlete-report {
+      margin-top: 48px;
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 8px;
+      padding: 36px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    @media (max-width: 640px) { .athlete-report { grid-template-columns: 1fr; } }
+    .athlete-report h3 {
+      font-family: var(--font);
+      font-size: 1.3rem;
+      font-weight: normal;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+    .athlete-report p {
+      font-size: 0.875rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+    .report-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .report-items li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.875rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .report-items li::before {
+      content: '✓';
+      color: var(--ae-gold);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
 
     /* REGISTER CTA */
     .register {
@@ -365,7 +608,7 @@
     .register p {
       color: #93c5fd;
       font-size: 1rem;
-      max-width: 520px;
+      max-width: 540px;
       margin: 0 auto 14px;
       line-height: 1.7;
     }
@@ -388,7 +631,7 @@
     }
     .btn-register:hover { background: var(--ae-gold-light); }
 
-    /* RF POWERED BY */
+    /* POWERED BY */
     .powered {
       background: var(--white);
       padding: 50px 24px;
@@ -403,11 +646,7 @@
       margin-bottom: 8px;
     }
     .powered-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
-    .powered-links a {
-      font-size: 0.85rem;
-      color: var(--blue);
-      text-decoration: none;
-    }
+    .powered-links a { font-size: 0.85rem; color: var(--blue); text-decoration: none; }
     .powered-links a:hover { text-decoration: underline; }
 
     /* FOOTER */
@@ -427,11 +666,7 @@
       gap: 12px;
     }
     .footer-links { display: flex; gap: 20px; }
-    .footer-links a {
-      font-size: 0.8rem;
-      color: #6b7280;
-      text-decoration: none;
-    }
+    .footer-links a { font-size: 0.8rem; color: #6b7280; text-decoration: none; }
     .footer-links a:hover { color: #9ca3af; }
     .footer-brand { font-size: 0.8rem; }
 
@@ -451,7 +686,7 @@
       <nav>
         <a href="/">All Combines</a>
         <a href="https://realfit.com">REALFIT.com</a>
-        <a href="mailto:combines@realfit.com" class="nav-cta">Register Interest</a>
+        <a href="mailto:combines@realfit.com?subject=AE Combine 2027 Interest" class="nav-cta">Apply Free</a>
       </nav>
     </div>
   </header>
@@ -463,31 +698,37 @@
       <span class="hero-x">×</span>
       <span class="hero-rf">REALFIT®</span>
     </div>
-    <h1>The <em>Athlete Within</em><br>Combine</h1>
-    <p class="hero-sub">Five iconic athletic challenges. One certified score. For athletes over 40 who know they still have more.</p>
-    <p class="hero-details">Dallas, TX · Spring 2027</p>
+    <h1>The <em>Athlete Within</em></h1>
+    <p class="hero-tagline">Age is just a number. Prove it.</p>
+    <p class="hero-sub">A search for the oldest verified athletes who can still meet five iconic performance standards. Five challenges. No combined score. Enter any one — or all five.</p>
+    <p class="hero-details">Dallas–Fort Worth · Spring 2027</p>
     <div class="hero-actions">
-      <a href="mailto:combines@realfit.com?subject=AE Combine 2027 Interest" class="btn-gold">Register interest</a>
+      <a href="mailto:combines@realfit.com?subject=AE Combine 2027 Interest" class="btn-gold">Apply free</a>
       <a href="#challenges" class="btn-ghost">See the challenges ↓</a>
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- MISSION -->
   <section class="section">
     <div class="section-inner">
-      <p class="section-label">About the event</p>
-      <h2>Prove that your best isn't behind you.</h2>
+      <p class="section-label">The mission</p>
+      <h2>What can you still do?</h2>
+      <p class="section-intro">Aging Evolution inspires adults to rediscover their athletic potential. REALFIT provides rigorous, repeatable measurement that turns that inspiration into verified accomplishment. Together, this event answers the question every former athlete has asked: <em>how much is still there?</em></p>
 
-      <div class="two-col">
-        <div class="col">
-          <p>The Aging Evolution Combine is the first event of its kind — a structured, standardized athletic challenge built specifically for competitors over 40, powered by REALFIT® certified scoring.</p>
-          <p>Aging Evolution believes that the most powerful thing an athlete over 40 can do is measure themselves against an objective standard — not against their younger self, not against peers, but against a defined benchmark that proves capability.</p>
-          <p><strong>This is not a recreational event.</strong> Every measurement is taken by a certified official using precise REALFIT® protocols. Your result means something.</p>
+      <div class="principle">
+        <p><strong>The competition principle:</strong> In each challenge, the winner is the oldest verified athlete who meets or exceeds the fixed threshold — not the athlete with the highest raw performance. Age, established to the day, is what matters once the standard is met. If no one meets the threshold, no winner is declared.</p>
+      </div>
+
+      <div class="two-audience">
+        <div class="audience-block">
+          <div class="audience-label">The headline search</div>
+          <h3>How old is too old?</h3>
+          <p>Five provocative questions. Who is the oldest person who can still serve 120 mph? Throw a football 50 yards? Pitch 80 mph? Run a 5.0-second 40? Drive a golf ball 300 yards? The oldest verified qualifier in each challenge becomes a central subject of the Aging Evolution documentary.</p>
         </div>
-        <div class="col">
-          <p>Across five disciplines — tennis, football, speed, golf, and baseball — participants compete for a single REALFIT® Certified score that reflects real athletic output.</p>
-          <p>Results are scored against <strong>REALFIT® Reference Standards</strong>: population-calibrated benchmarks that tell you exactly where your performance falls and what it represents.</p>
-          <p>Your result carries the <strong>"Certified by REALFIT®"</strong> mark — a verifiable record of what you did on that day, measured the same way for everyone.</p>
+        <div class="audience-block">
+          <div class="audience-label">The participant experience</div>
+          <h3>Find out where you stand.</h3>
+          <p>You don't have to hit the headline standard to make the event matter. Every participant earns a REALFIT®-certified result, a ranking in their five-year age group, and a verified benchmark to build on. "You don't have to be the best. You just have to show up."</p>
         </div>
       </div>
     </div>
@@ -496,96 +737,212 @@
   <!-- CHALLENGES -->
   <section class="challenges-section" id="challenges">
     <div class="challenges-inner">
-      <p class="section-label">The challenges</p>
-      <h2>Five tests. One score.</h2>
-      <p class="section-intro">Each challenge is a precisely specified REALFIT® test — standardized equipment, standardized measurement, standardized result. The same way, for everyone.</p>
+      <p class="section-label">Five challenges</p>
+      <h2>Enter any one. Or all five.</h2>
+      <p class="section-intro">Each challenge is a separate event with its own headline standard. There is no combined score — you compete in whichever challenges fit your athletic background.</p>
 
-      <div class="challenge-list">
-        <div class="challenge-row">
-          <div class="ch-num">01</div>
-          <div>
-            <div class="ch-icon">🎾</div>
-            <div class="ch-sport">Tennis</div>
-          </div>
-          <div>
-            <div class="ch-name">Serve Speed</div>
-            <div class="ch-desc">Radar-measured first serve velocity using a standard court setup and approved equipment. Peak speed from three attempts.</div>
-          </div>
-          <div class="ch-target-box">
-            <div class="ch-target-label">Elite target</div>
-            <div class="ch-target">120</div>
-            <div class="ch-target-unit">mph</div>
+      <table class="challenge-table">
+        <thead>
+          <tr>
+            <th>Challenge</th>
+            <th>What's measured</th>
+            <th style="text-align:right;">Headline target</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="ch-sport-tag">🎾 Tennis</span>
+              <span class="ch-name">Serve Speed</span>
+              <span class="ch-what">Fastest valid serve</span>
+            </td>
+            <td>
+              <p class="ch-desc">Radar-measured first-serve velocity on a standard court. The oldest athlete to achieve 120 mph or faster wins the challenge.</p>
+            </td>
+            <td>
+              <span class="ch-target">120</span>
+              <span class="ch-unit">mph</span>
+              <span class="ch-measured">Fastest valid serve</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="ch-sport-tag">🏈 Football</span>
+              <span class="ch-name">Throw Distance</span>
+              <span class="ch-what">Longest valid airborne throw</span>
+            </td>
+            <td>
+              <p class="ch-desc">Standing throw with a regulation football, measured from release point to landing. The oldest athlete to reach 50 yards wins.</p>
+            </td>
+            <td>
+              <span class="ch-target">50</span>
+              <span class="ch-unit">yards</span>
+              <span class="ch-measured">Longest valid throw</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="ch-sport-tag">⚡ Speed</span>
+              <span class="ch-name">40-Yard Dash</span>
+              <span class="ch-what">Fastest valid electronic time</span>
+            </td>
+            <td>
+              <p class="ch-desc">Electronic-timed sprint over 40 yards from a stationary start. REALFIT® timing equipment and certified officials. The oldest athlete to run 5.00 or faster wins.</p>
+            </td>
+            <td>
+              <span class="ch-target">5.00</span>
+              <span class="ch-unit">seconds</span>
+              <span class="ch-measured">Fastest valid time</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="ch-sport-tag">⛳ Golf</span>
+              <span class="ch-name">Drive Distance</span>
+              <span class="ch-what">Longest valid drive</span>
+            </td>
+            <td>
+              <p class="ch-desc">Driver shot measured via indoor simulator (Friday event at a DFW facility). The oldest athlete to reach 300 yards wins.</p>
+            </td>
+            <td>
+              <span class="ch-target">300</span>
+              <span class="ch-unit">yards</span>
+              <span class="ch-measured">Longest valid drive</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="ch-sport-tag">⚾ Baseball</span>
+              <span class="ch-name">Pitch Speed</span>
+              <span class="ch-what">Fastest valid pitch</span>
+            </td>
+            <td>
+              <p class="ch-desc">Radar-measured pitching velocity from a standard mound distance at an indoor facility. The oldest athlete to reach 80 mph wins.</p>
+            </td>
+            <td>
+              <span class="ch-target">80</span>
+              <span class="ch-unit">mph</span>
+              <span class="ch-measured">Fastest valid pitch</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="schedule-section">
+    <div class="section-inner">
+      <p class="section-label">Event schedule</p>
+      <h2>Three days. Five challenges.</h2>
+      <p class="section-intro">All five challenges run sequentially so athletes can enter multiple events, officials can focus on one challenge at a time, and documentary coverage stays sharp. Specific dates TBD — working target is March or April 2027.</p>
+
+      <div class="schedule-grid">
+        <div class="sched-day">
+          <div class="sched-day-label">Friday</div>
+          <div class="sched-event">
+            <div class="sched-time">1:00 – 5:00 PM</div>
+            <div class="sched-challenge">Golf · Drive Distance</div>
+            <div class="sched-standard">300-yard target</div>
           </div>
         </div>
-
-        <div class="challenge-row">
-          <div class="ch-num">02</div>
-          <div>
-            <div class="ch-icon">🏈</div>
-            <div class="ch-sport">Football</div>
+        <div class="sched-day">
+          <div class="sched-day-label">Saturday</div>
+          <div class="sched-event">
+            <div class="sched-time">9:00 AM – Noon</div>
+            <div class="sched-challenge">Football · Throw Distance</div>
+            <div class="sched-standard">50-yard target</div>
           </div>
-          <div>
-            <div class="ch-name">50-Yard Throw</div>
-            <div class="ch-desc">Distance of a standing throw using a regulation NFL football, measured from release point to where the ball lands.</div>
-          </div>
-          <div class="ch-target-box">
-            <div class="ch-target-label">Elite target</div>
-            <div class="ch-target">50</div>
-            <div class="ch-target-unit">yards</div>
+          <div class="sched-event">
+            <div class="sched-time">1:00 – 4:00 PM</div>
+            <div class="sched-challenge">Speed · 40-Yard Dash</div>
+            <div class="sched-standard">5.00-second target</div>
           </div>
         </div>
-
-        <div class="challenge-row">
-          <div class="ch-num">03</div>
-          <div>
-            <div class="ch-icon">⚡</div>
-            <div class="ch-sport">Speed</div>
+        <div class="sched-day">
+          <div class="sched-day-label">Sunday</div>
+          <div class="sched-event">
+            <div class="sched-time">9:00 AM – Noon</div>
+            <div class="sched-challenge">Tennis · Serve Speed</div>
+            <div class="sched-standard">120-mph target</div>
           </div>
-          <div>
-            <div class="ch-name">40-Yard Dash</div>
-            <div class="ch-desc">Hand-timed sprint over 40 yards from a stationary start, following standard NFL Combine setup and protocol.</div>
-          </div>
-          <div class="ch-target-box">
-            <div class="ch-target-label">Elite target</div>
-            <div class="ch-target">5.00</div>
-            <div class="ch-target-unit">seconds</div>
-          </div>
-        </div>
-
-        <div class="challenge-row">
-          <div class="ch-num">04</div>
-          <div>
-            <div class="ch-icon">⛳</div>
-            <div class="ch-sport">Golf</div>
-          </div>
-          <div>
-            <div class="ch-name">Drive Distance</div>
-            <div class="ch-desc">Total carry distance of a driver shot measured via TrackMan or equivalent launch monitor. Best of three drives.</div>
-          </div>
-          <div class="ch-target-box">
-            <div class="ch-target-label">Elite target</div>
-            <div class="ch-target">300</div>
-            <div class="ch-target-unit">yards</div>
-          </div>
-        </div>
-
-        <div class="challenge-row">
-          <div class="ch-num">05</div>
-          <div>
-            <div class="ch-icon">⚾</div>
-            <div class="ch-sport">Baseball</div>
-          </div>
-          <div>
-            <div class="ch-name">Pitch Speed</div>
-            <div class="ch-desc">Radar-measured pitching velocity from a standard 60-foot, 6-inch mound distance. Peak reading from five attempts.</div>
-          </div>
-          <div class="ch-target-box">
-            <div class="ch-target-label">Elite target</div>
-            <div class="ch-target">80</div>
-            <div class="ch-target-unit">mph</div>
+          <div class="sched-event">
+            <div class="sched-time">1:00 – 4:00 PM</div>
+            <div class="sched-challenge">Baseball · Pitch Speed</div>
+            <div class="sched-standard">80-mph target</div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- HOW TO ENTER -->
+  <section class="enter-section">
+    <div class="section-inner">
+      <p class="section-label">How it works</p>
+      <h2>Free to apply. Earn your invitation.</h2>
+      <p class="section-intro">Each challenge accepts up to 120 participants — the 100 oldest eligible applicants receive automatic age-priority invitations. You pay only after you're selected.</p>
+
+      <div class="enter-steps">
+        <div class="enter-step">
+          <div class="step-num">01</div>
+          <h3>Apply free</h3>
+          <p>Submit a free application for any or all five challenges. No payment required to apply.</p>
+        </div>
+        <div class="enter-step">
+          <div class="step-num">02</div>
+          <h3>Age verification</h3>
+          <p>Applicants are ranked by age. The 100 oldest eligible applicants per challenge receive automatic invitations.</p>
+        </div>
+        <div class="enter-step">
+          <div class="step-num">03</div>
+          <h3>Accept your invitation</h3>
+          <p>Selected athletes receive an invitation with a deadline to accept and pay their entry fee.</p>
+        </div>
+        <div class="enter-step">
+          <div class="step-num">04</div>
+          <h3>Compete and get certified</h3>
+          <p>Show up, compete under REALFIT® certified officials, and receive your official results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section">
+    <div class="section-inner">
+      <p class="section-label">Entry fees</p>
+      <h2>Pay only after you're selected.</h2>
+      <p class="section-intro">Application is always free. Fees are charged only after you've been invited and accept your place.</p>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-label">Apply</div>
+          <div class="price-amount">Free</div>
+          <div class="price-note">Any number of challenges. No commitment until selected.</div>
+        </div>
+        <div class="price-card">
+          <div class="price-label">1 Challenge</div>
+          <div class="price-amount">$50</div>
+          <div class="price-note">Per challenge entry, after invitation accepted.</div>
+        </div>
+        <div class="price-card">
+          <div class="price-label">2 Challenges</div>
+          <div class="price-amount">$100</div>
+          <div class="price-note">Two challenge entries.</div>
+        </div>
+        <div class="price-card">
+          <div class="price-label">3 Challenges</div>
+          <div class="price-amount">$150</div>
+          <div class="price-note">Three challenge entries.</div>
+        </div>
+        <div class="price-card featured">
+          <div class="price-label">All Five</div>
+          <div class="price-amount">$200</div>
+          <div class="price-note">All five challenges — the fifth is effectively free.</div>
+        </div>
+      </div>
+      <p class="pricing-note">Fees apply per challenge entry. An athlete may enter more than one challenge; up to 600 total entries across all five events. VIP and video-selection invitations also available.</p>
     </div>
   </section>
 
@@ -599,29 +956,43 @@
       <div class="cert-grid">
         <div class="cert-card">
           <h3>Tier 2 Measurement</h3>
-          <p>Every test is administered by a REALFIT®-certified official using specified equipment and protocol. Your result meets the standard required for official recognition.</p>
+          <p>Every test is administered by a REALFIT®-certified official using specified equipment and published protocol. Your result meets the standard required for official recognition.</p>
         </div>
         <div class="cert-card">
           <h3>FITDAT® Recorded</h3>
-          <p>Your result is stored in the open FITDAT® format — a structured, versioned data record you own. Compare against any REALFIT®-powered combine, now or in the future.</p>
+          <p>Your result is recorded in the open FITDAT® format — a structured, versioned data record tied to your athlete account. Comparable across any REALFIT®-powered event, now or in the future.</p>
         </div>
         <div class="cert-card">
-          <h3>Reference Band Score</h3>
-          <p>Your composite score is placed on a calibrated reference scale. You'll know your number and what it means — how you compare to the defined standard for each challenge.</p>
+          <h3>Age-Group Ranking</h3>
+          <p>Every participant receives a performance ranking in their five-year age bracket — regardless of whether they meet the headline threshold. Your certified result stands on its own.</p>
         </div>
         <div class="cert-card">
           <h3>Shareable Result</h3>
-          <p>You'll receive a verified result document carrying the REALFIT® certification mark and your Aging Evolution Combine scores — something worth sharing, because it means something.</p>
+          <p>You'll receive a verified result document carrying the REALFIT® certification mark — something worth sharing, because it means something.</p>
         </div>
+      </div>
+
+      <div class="athlete-report">
+        <div>
+          <h3>Every competitor receives a full athlete report.</h3>
+          <p>Whether you hit the headline standard or not, every participant walks away with something real: a certified, official record of exactly what they did, plus context that shows where they stand.</p>
+        </div>
+        <ul class="report-items">
+          <li>Official REALFIT®-certified results for every challenge entered</li>
+          <li>Personal athlete report with your verified measurements</li>
+          <li>Full scoreboard access — see how you compare across age groups and all participants</li>
+          <li>Five-year age-group ranking for each challenge</li>
+          <li>Shareable result card with REALFIT® certification mark</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- REGISTER -->
   <section class="register">
-    <h2>Ready to find out<br>what you've still got?</h2>
-    <p>Registration opens Winter 2026. Leave your information and we'll notify you when spots are available.</p>
-    <p class="register-detail">Dallas, TX · Spring 2027 · Ages 40+</p>
+    <h2>Find out what you've<br>still got.</h2>
+    <p>Applications open soon. Submit your interest now and we'll notify you the moment applications go live for your challenges.</p>
+    <p class="register-detail">Dallas–Fort Worth · Spring 2027 · Free to apply</p>
     <div class="register-actions">
       <a href="mailto:combines@realfit.com?subject=AE Combine 2027 Interest" class="btn-register">Register interest</a>
     </div>
