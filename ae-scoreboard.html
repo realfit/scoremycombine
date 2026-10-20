@@ -556,6 +556,28 @@
     .view-toggle { flex-wrap: wrap; }
   }
 
+  /* ── BACK NAV ── */
+  .back-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px max(16px, env(safe-area-inset-left, 0px));
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    font-size: 0.78rem;
+  }
+  .back-link {
+    color: var(--fg3);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .back-link:hover { color: var(--gold); }
+  .back-sep { color: var(--fg3); opacity: 0.4; }
+  .back-current {
+    color: var(--fg2);
+    font-weight: 600;
+  }
+
   /* ── FOOTER NOTE ── */
   .board-note {
     margin-top: 40px;
@@ -581,6 +603,15 @@
   }
   .disclaimer em { color: var(--fg2); font-style: normal; font-weight: 600; }
 </style>
+
+<!-- ── BACK NAV ── -->
+<nav class="back-nav">
+  <a href="/" class="back-link">← ScoreMyCombine</a>
+  <span class="back-sep">/</span>
+  <a href="/aging-evolution" class="back-link">AE Combine</a>
+  <span class="back-sep">/</span>
+  <span class="back-current">Scoreboard</span>
+</nav>
 
 <!-- ── HEADER ── -->
 <header class="hdr">
