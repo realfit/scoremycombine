@@ -6,19 +6,21 @@
   <title>AE Combine 2027 — Aging Evolution × REALFIT®</title>
   <link rel="icon" type="image/png" href="favicon.png" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap');
+
     :root {
-      --blue: #1a4fa0;
-      --blue-light: #2563c7;
-      --ae-gold: #c9a227;
-      --ae-gold-light: #f0c847;
-      --gray: #6b7280;
-      --gray-light: #f4f5f7;
-      --gray-mid: #e5e7eb;
-      --black: #111827;
-      --white: #ffffff;
-      --text: #1f2937;
-      --font: 'Georgia', serif;
-      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      --ae-red:       #cc1f1f;
+      --ae-red-light: #e53535;
+      --ae-red-dark:  #a01515;
+      --gray:         #6b7280;
+      --gray-light:   #f4f5f7;
+      --gray-mid:     #e5e7eb;
+      --black:        #0d0d0d;
+      --black2:       #1a1a1a;
+      --white:        #ffffff;
+      --text:         #1f2937;
+      --display:      'Barlow Condensed', sans-serif;
+      --sans:         'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,10 +32,12 @@
       line-height: 1.6;
     }
 
+    h1, h2, h3 { font-family: var(--display); }
+
     /* NAV */
     header {
-      background: var(--white);
-      border-bottom: 1px solid var(--gray-mid);
+      background: var(--black);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -47,25 +51,28 @@
       align-items: center;
       justify-content: space-between;
     }
-    .nav-brand {
-      font-family: var(--font);
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: var(--blue);
+    .nav-logo {
+      display: flex;
+      align-items: center;
       text-decoration: none;
     }
-    .nav-brand span { color: var(--black); }
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+      /* logo is black on white — invert for dark nav */
+      filter: invert(1);
+    }
     nav { display: flex; align-items: center; gap: 24px; }
     nav a {
       font-size: 0.875rem;
-      color: var(--gray);
+      color: rgba(255,255,255,0.55);
       text-decoration: none;
       transition: color 0.2s;
     }
-    nav a:hover { color: var(--blue); }
+    nav a:hover { color: var(--white); }
     .nav-cta {
-      background: var(--ae-gold);
-      color: var(--black) !important;
+      background: var(--ae-red);
+      color: var(--white) !important;
       padding: 8px 18px;
       border-radius: 4px;
       font-weight: 700;
@@ -73,11 +80,11 @@
       letter-spacing: 0.03em;
       transition: background 0.2s !important;
     }
-    .nav-cta:hover { background: var(--ae-gold-light) !important; }
+    .nav-cta:hover { background: var(--ae-red-light) !important; }
 
     /* HERO */
     .hero {
-      background: linear-gradient(160deg, #0f172a 0%, #1e1a0a 100%);
+      background: var(--black);
       color: var(--white);
       padding: 90px 24px 80px;
       text-align: center;
@@ -88,7 +95,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(201,162,39,0.15) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(204,31,31,0.18) 0%, transparent 60%);
       pointer-events: none;
     }
     .hero-lockup {
@@ -100,11 +107,12 @@
       flex-wrap: wrap;
     }
     .hero-badge {
-      background: var(--ae-gold);
-      color: var(--black);
-      font-size: 0.7rem;
+      background: var(--ae-red);
+      color: var(--white);
+      font-family: var(--display);
+      font-size: 0.72rem;
       font-weight: 800;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       padding: 5px 12px;
       border-radius: 3px;
@@ -118,22 +126,25 @@
       color: #64748b;
     }
     .hero h1 {
-      font-family: var(--font);
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
-      font-weight: normal;
-      line-height: 1.1;
+      font-family: var(--display);
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      line-height: 1;
       margin-bottom: 14px;
     }
     .hero h1 em {
       font-style: normal;
-      color: var(--ae-gold-light);
+      color: var(--ae-red-light);
     }
     .hero-tagline {
-      font-size: 0.9rem;
+      font-family: var(--display);
+      font-size: 1rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--ae-gold);
+      color: var(--ae-red);
       margin-bottom: 16px;
     }
     .hero-sub {
@@ -153,8 +164,8 @@
     }
     .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
     .btn-gold {
-      background: var(--ae-gold);
-      color: var(--black);
+      background: var(--ae-red);
+      color: var(--white);
       padding: 14px 30px;
       border-radius: 4px;
       font-size: 0.9rem;
@@ -163,7 +174,7 @@
       letter-spacing: 0.02em;
       transition: background 0.2s;
     }
-    .btn-gold:hover { background: var(--ae-gold-light); }
+    .btn-gold:hover { background: var(--ae-red-light); }
     .btn-ghost {
       background: transparent;
       color: var(--white);
@@ -181,20 +192,23 @@
     .section { padding: 80px 24px; }
     .section-inner { max-width: 1100px; margin: 0 auto; }
     .section-label {
+      font-family: var(--display);
       font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
+      font-weight: 800;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--ae-gold);
+      color: var(--ae-red);
       margin-bottom: 12px;
     }
     .section h2 {
-      font-family: var(--font);
-      font-size: clamp(1.7rem, 3vw, 2.4rem);
-      font-weight: normal;
+      font-family: var(--display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
       color: var(--black);
       margin-bottom: 16px;
-      line-height: 1.2;
+      line-height: 1.05;
     }
     .section-intro {
       font-size: 1.05rem;
@@ -206,8 +220,8 @@
 
     /* PRINCIPLE CALLOUT */
     .principle {
-      background: #0f172a;
-      border-left: 4px solid var(--ae-gold);
+      background: var(--black);
+      border-left: 4px solid var(--ae-red);
       padding: 28px 32px;
       border-radius: 0 6px 6px 0;
       margin: 48px 0;
@@ -218,7 +232,7 @@
       line-height: 1.75;
       margin: 0;
     }
-    .principle strong { color: var(--ae-gold-light); }
+    .principle strong { color: #fff; }
 
     /* TWO AUDIENCES */
     .two-audience {
@@ -235,17 +249,20 @@
     .audience-block:first-child { border-radius: 8px 0 0 8px; }
     .audience-block:last-child { border-radius: 0 8px 8px 0; }
     .audience-label {
+      font-family: var(--display);
       font-size: 0.65rem;
       font-weight: 800;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--ae-gold);
+      color: var(--ae-red);
       margin-bottom: 10px;
     }
     .audience-block h3 {
-      font-family: var(--font);
-      font-size: 1.25rem;
-      font-weight: normal;
+      font-family: var(--display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
       color: var(--black);
       margin-bottom: 12px;
     }
@@ -266,11 +283,13 @@
       padding: 80px 24px;
     }
     .challenges-inner { max-width: 1100px; margin: 0 auto; }
-    .challenges-section .section-label { color: var(--ae-gold); }
+    .challenges-section .section-label { color: var(--ae-red); }
     .challenges-section h2 {
-      font-family: var(--font);
-      font-size: clamp(1.7rem, 3vw, 2.4rem);
-      font-weight: normal;
+      font-family: var(--display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
       color: var(--white);
       margin-bottom: 12px;
     }
@@ -330,9 +349,10 @@
       max-width: 340px;
     }
     .ch-target {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: var(--ae-gold-light);
+      font-family: var(--display);
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--ae-red-light);
       display: block;
       line-height: 1;
     }
@@ -377,11 +397,12 @@
       .sched-day:not(:first-child):not(:last-child) { border-radius: 0; }
     }
     .sched-day-label {
+      font-family: var(--display);
       font-size: 0.65rem;
       font-weight: 800;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--ae-gold);
+      color: var(--ae-red);
       margin-bottom: 16px;
     }
     .sched-event {
@@ -402,7 +423,7 @@
     }
     .sched-standard {
       font-size: 0.8rem;
-      color: var(--ae-gold);
+      color: var(--ae-red);
       font-weight: 600;
     }
 
@@ -450,14 +471,16 @@
 
     /* PRICING */
     .pricing-section {
-      background: #0f172a;
+      background: var(--black);
       padding: 80px 24px;
     }
-    .pricing-section .section-label { color: var(--ae-gold); }
+    .pricing-section .section-label { color: var(--ae-red); }
     .pricing-section h2 {
-      font-family: var(--font);
-      font-size: clamp(1.7rem, 3vw, 2.4rem);
-      font-weight: normal;
+      font-family: var(--display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
       color: var(--white);
       margin-bottom: 12px;
     }
@@ -476,8 +499,8 @@
       text-align: center;
     }
     .price-card.featured {
-      background: rgba(201,162,39,0.1);
-      border-color: var(--ae-gold);
+      background: rgba(204,31,31,0.1);
+      border-color: var(--ae-red);
     }
     .price-label {
       font-size: 0.7rem;
@@ -487,7 +510,7 @@
       color: #64748b;
       margin-bottom: 10px;
     }
-    .price-card.featured .price-label { color: var(--ae-gold); }
+    .price-card.featured .price-label { color: var(--ae-red); }
     .price-amount {
       font-size: 2rem;
       font-weight: 800;
@@ -536,8 +559,8 @@
     }
     .cert-badge {
       display: inline-block;
-      border: 2px solid var(--blue);
-      color: var(--blue);
+      border: 2px solid var(--ae-red);
+      color: var(--ae-red);
       font-size: 0.65rem;
       font-weight: 800;
       letter-spacing: 0.1em;
@@ -586,7 +609,7 @@
     }
     .report-items li::before {
       content: '✓';
-      color: var(--ae-gold);
+      color: var(--ae-red);
       font-weight: 700;
       flex-shrink: 0;
       margin-top: 1px;
@@ -594,19 +617,31 @@
 
     /* REGISTER CTA */
     .register {
-      background: linear-gradient(135deg, #0f172a 0%, #1a4fa0 100%);
+      background: var(--ae-red-dark);
       color: var(--white);
       padding: 90px 24px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
+    .register::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .register > * { position: relative; }
     .register h2 {
-      font-family: var(--font);
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: normal;
+      font-family: var(--display);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
       margin-bottom: 14px;
     }
     .register p {
-      color: #93c5fd;
+      color: rgba(255,255,255,0.7);
       font-size: 1rem;
       max-width: 540px;
       margin: 0 auto 14px;
@@ -614,22 +649,22 @@
     }
     .register-detail {
       font-size: 0.85rem;
-      color: #475569 !important;
+      color: rgba(255,255,255,0.4) !important;
       margin-bottom: 36px !important;
     }
     .register-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
     .btn-register {
-      background: var(--ae-gold);
-      color: var(--black);
+      background: var(--white);
+      color: var(--ae-red-dark);
       padding: 16px 36px;
       border-radius: 4px;
       font-size: 0.95rem;
       font-weight: 700;
       text-decoration: none;
       letter-spacing: 0.02em;
-      transition: background 0.2s;
+      transition: background 0.2s, color 0.2s;
     }
-    .btn-register:hover { background: var(--ae-gold-light); }
+    .btn-register:hover { background: #f0f0f0; }
 
     /* POWERED BY */
     .powered {
@@ -646,7 +681,7 @@
       margin-bottom: 8px;
     }
     .powered-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
-    .powered-links a { font-size: 0.85rem; color: var(--blue); text-decoration: none; }
+    .powered-links a { font-size: 0.85rem; color: var(--ae-red-light); text-decoration: none; }
     .powered-links a:hover { text-decoration: underline; }
 
     /* FOOTER */
@@ -682,7 +717,7 @@
   <!-- HEADER -->
   <header>
     <div class="nav-inner">
-      <a href="/" class="nav-brand">Score<span>My</span>Combine</a>
+      <a href="/" class="nav-logo"><img src="ae-logo.png" alt="Aging Evolution"></a>
       <nav>
         <a href="/">All Combines</a>
         <a href="https://realfit.com">REALFIT.com</a>
@@ -836,7 +871,7 @@
     <div class="section-inner">
       <p class="section-label">Event schedule</p>
       <h2>Three days. Five challenges.</h2>
-      <p class="section-intro">All five challenges run sequentially so athletes can enter multiple events, officials can focus on one challenge at a time, and documentary coverage stays sharp. <strong style="color:var(--ae-gold)">Tentative schedule — exact dates, venues, and venue types TBD.</strong> Working target is spring 2027 in the Dallas–Fort Worth area.</p>
+      <p class="section-intro">All five challenges run sequentially so athletes can enter multiple events, officials can focus on one challenge at a time, and documentary coverage stays sharp. <strong style="color:var(--ae-red-light)">Tentative schedule — exact dates, venues, and venue types TBD.</strong> Working target is spring 2027 in the Dallas–Fort Worth area.</p>
 
       <div class="schedule-grid">
         <div class="sched-day">
@@ -996,7 +1031,7 @@
     <p class="register-detail">Dallas–Fort Worth · Spring 2027 · Free to apply</p>
     <div class="register-actions">
       <a href="mailto:combines@realfit.com?subject=AE Combine 2027 Interest" class="btn-register">Register interest</a>
-      <a href="/aging-evolution/scoreboard" style="color:#93c5fd;font-size:0.9rem;font-weight:600;text-decoration:none;padding:16px 0;">View mock scoreboard →</a>
+      <a href="/aging-evolution/scoreboard" style="color:rgba(255,255,255,0.75);font-size:0.9rem;font-weight:600;text-decoration:none;padding:16px 0;">View mock scoreboard →</a>
     </div>
   </section>
 
