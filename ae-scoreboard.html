@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Barlow:wght@400;500;600&display=swap">
 
 <style>
-  /* ── tokens ── dark-first scoreboard aesthetic ── */
+  /* ── tokens ── dark-first scoreboard ── */
   :root {
     --bg:        #0a0c10;
     --surface:   #12161e;
@@ -26,7 +26,22 @@
     color-scheme: dark;
   }
 
-  /* single dark theme by design */
+  /* ── light theme ── */
+  :root[data-theme="light"] {
+    --bg:        #f8f9fc;
+    --surface:   #ffffff;
+    --surface2:  #f1f3f8;
+    --border:    rgba(0,0,0,0.09);
+    --gold:      #a07c10;
+    --gold-lt:   #b8900f;
+    --gold-glow: rgba(160,124,16,0.10);
+    --fg:        #111827;
+    --fg2:       #374151;
+    --fg3:       #6b7280;
+    --tag-bg:    rgba(0,0,0,0.05);
+    --row-hover: rgba(0,0,0,0.03);
+    color-scheme: light;
+  }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -49,6 +64,10 @@
     position: sticky;
     top: env(safe-area-inset-top, 0px);
     z-index: 50;
+    position: relative; /* for toggle positioning */
+  }
+  :root[data-theme="light"] .hdr {
+    background: linear-gradient(180deg, #e8ecf5 0%, var(--bg) 100%);
   }
   .hdr-lockup {
     display: flex;
@@ -81,6 +100,29 @@
     margin-bottom: 6px;
   }
   .hdr h1 span { color: var(--gold); }
+
+  /* ── theme toggle ── */
+  .theme-toggle {
+    position: absolute;
+    top: 16px;
+    right: max(16px, env(safe-area-inset-right, 0px));
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 5px 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--fg2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.15s, color 0.15s;
+    font-family: var(--body);
+  }
+  .theme-toggle:hover { color: var(--fg); }
+  .theme-toggle .icon { font-size: 0.85rem; }
 
   .live-chip {
     display: inline-flex;
@@ -409,6 +451,9 @@
 
 <!-- ── HEADER ── -->
 <header class="hdr">
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+    <span class="icon">🌙</span><span id="themeLbl">Dark</span>
+  </button>
   <div class="hdr-lockup">
     <span class="hdr-badge">Aging Evolution</span>
     <span class="hdr-x">×</span>
@@ -1070,5 +1115,31 @@
   try {
     const h = location.hash.replace('#','');
     if (['golf','football','dash','tennis','baseball'].includes(h)) show(h);
+  } catch(e) {}
+
+  // ── theme toggle ──
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    const btn = document.getElementById('themeBtn');
+    const lbl = document.getElementById('themeLbl');
+    if (t === 'light') {
+      btn.querySelector('.icon').textContent = '☀️';
+      lbl.textContent = 'Light';
+    } else {
+      btn.querySelector('.icon').textContent = '🌙';
+      lbl.textContent = 'Dark';
+    }
+    try { localStorage.setItem('ae-theme', t); } catch(e) {}
+  }
+
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  }
+
+  // restore saved preference
+  try {
+    const saved = localStorage.getItem('ae-theme');
+    if (saved === 'light') applyTheme('light');
   } catch(e) {}
 </script>
