@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/aging-evolution", "destination": "/aging-evolution.html" }
+    { "source": "/aging-evolution", "destination": "/aging-evolution.html" },
+    { "source": "/aging-evolution/scoreboard", "destination": "/ae-scoreboard.html" }
   ]
 }
