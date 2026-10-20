@@ -709,8 +709,145 @@
 
     @media (max-width: 640px) {
       nav a:not(.nav-cta) { display: none; }
+      .theme-toggle .theme-toggle-label { display: none; }
       .footer-inner { justify-content: center; }
       .footer-links { justify-content: center; }
+    }
+
+    /* ── THEME TOGGLE ── */
+    .theme-toggle {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      color: rgba(255,255,255,0.55);
+      cursor: pointer;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 5px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: border-color 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover {
+      border-color: rgba(255,255,255,0.5);
+      color: var(--white);
+    }
+    .theme-toggle-icon { font-size: 0.85rem; }
+
+    /* ── DARK MODE ── */
+    body.dark-mode {
+      background: #111;
+      color: #d1d5db;
+    }
+    body.dark-mode .section {
+      background: #111;
+    }
+    body.dark-mode .section h2 {
+      color: var(--white);
+    }
+    body.dark-mode .section-intro {
+      color: #94a3b8;
+    }
+    body.dark-mode .principle {
+      background: #1c1c1e;
+    }
+    body.dark-mode .two-audience {
+      gap: 2px;
+    }
+    body.dark-mode .audience-block {
+      background: #1c1c1e;
+    }
+    body.dark-mode .audience-block h3 {
+      color: var(--white);
+    }
+    body.dark-mode .audience-block p {
+      color: #94a3b8;
+    }
+    body.dark-mode .schedule-section {
+      background: #161618;
+    }
+    body.dark-mode .schedule-section h2 {
+      color: var(--white);
+    }
+    body.dark-mode .schedule-section .section-intro {
+      color: #94a3b8;
+    }
+    body.dark-mode .sched-day {
+      background: #1c1c1e;
+    }
+    body.dark-mode .sched-event {
+      border-color: rgba(255,255,255,0.07);
+    }
+    body.dark-mode .sched-challenge {
+      color: var(--white);
+    }
+    body.dark-mode .enter-section {
+      background: #111;
+    }
+    body.dark-mode .enter-section h2 {
+      color: var(--white);
+    }
+    body.dark-mode .enter-section .section-intro {
+      color: #94a3b8;
+    }
+    body.dark-mode .enter-steps {
+      border-color: rgba(255,255,255,0.08);
+    }
+    body.dark-mode .enter-step {
+      background: #1c1c1e;
+      border-color: rgba(255,255,255,0.08);
+    }
+    body.dark-mode .enter-step h3 {
+      color: var(--white);
+    }
+    body.dark-mode .enter-step p {
+      color: #94a3b8;
+    }
+    body.dark-mode .step-num {
+      color: rgba(255,255,255,0.1);
+    }
+    body.dark-mode .certified {
+      background: #161618;
+    }
+    body.dark-mode .certified h2 {
+      color: var(--white);
+    }
+    body.dark-mode .certified .section-intro {
+      color: #94a3b8;
+    }
+    body.dark-mode .cert-card {
+      background: #1c1c1e;
+      border-color: rgba(255,255,255,0.08);
+    }
+    body.dark-mode .cert-card h3 {
+      color: var(--white);
+    }
+    body.dark-mode .cert-card p {
+      color: #94a3b8;
+    }
+    body.dark-mode .athlete-report {
+      background: #1c1c1e;
+      border-color: rgba(255,255,255,0.08);
+    }
+    body.dark-mode .athlete-report h3 {
+      color: var(--white);
+    }
+    body.dark-mode .athlete-report p {
+      color: #94a3b8;
+    }
+    body.dark-mode .report-items li {
+      color: #d1d5db;
+    }
+    body.dark-mode .powered {
+      background: #0d0d0d;
+      border-color: rgba(255,255,255,0.06);
+    }
+    body.dark-mode .powered p {
+      color: #475569;
     }
   </style>
 </head>
@@ -725,6 +862,10 @@
         <a href="https://realfit.com">REALFIT.com</a>
         <a href="/aging-evolution/scoreboard">Scoreboard</a>
         <span class="nav-cta" style="opacity:0.45;cursor:default;pointer-events:none;">Coming Soon</span>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <span class="theme-toggle-icon">☀️</span>
+          <span class="theme-toggle-label">Light</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -1059,6 +1200,33 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('themeToggle');
+      var icon = btn.querySelector('.theme-toggle-icon');
+      var label = btn.querySelector('.theme-toggle-label');
+      var dark = false;
+
+      // Restore preference
+      try {
+        if (localStorage.getItem('ae-theme') === 'dark') {
+          dark = true;
+          document.body.classList.add('dark-mode');
+          icon.textContent = '🌙';
+          label.textContent = 'Dark';
+        }
+      } catch(e) {}
+
+      btn.addEventListener('click', function() {
+        dark = !dark;
+        document.body.classList.toggle('dark-mode', dark);
+        icon.textContent = dark ? '🌙' : '☀️';
+        label.textContent = dark ? 'Dark' : 'Light';
+        try { localStorage.setItem('ae-theme', dark ? 'dark' : 'light'); } catch(e) {}
+      });
+    })();
+  </script>
 
 </body>
 </html>
