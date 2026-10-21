@@ -277,14 +277,14 @@
     }
 
     /* CHALLENGES */
-    .challenges-section {
+    .challenges-intro {
       background: var(--black);
       color: var(--white);
-      padding: 80px 24px;
+      padding: 80px 24px 60px;
     }
     .challenges-inner { max-width: 1100px; margin: 0 auto; }
-    .challenges-section .section-label { color: var(--ae-red); }
-    .challenges-section h2 {
+    .challenges-intro .section-label { color: var(--ae-red); }
+    .challenges-intro h2 {
       font-family: var(--display);
       font-size: clamp(2rem, 3.5vw, 3rem);
       font-weight: 900;
@@ -293,89 +293,133 @@
       color: var(--white);
       margin-bottom: 12px;
     }
-    .challenges-section .section-intro { color: #cbd5e1; }
+    .challenges-intro .section-intro { color: #cbd5e1; margin-bottom: 0; }
 
-    .challenge-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 40px;
+    .challenges-cards {
+      background: #f0f1f3;
+      padding: 0 24px 80px;
     }
-    .challenge-table thead th {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #94a3b8;
-      text-align: left;
-      padding: 0 0 16px;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
+    .challenges-cards-inner {
+      max-width: 1100px;
+      margin: 0 auto;
     }
-    .challenge-table thead th:last-child { text-align: right; }
-    .challenge-table tbody tr {
-      border-bottom: 1px solid rgba(255,255,255,0.10);
+    .ch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+      padding-top: 40px;
     }
-    .challenge-table tbody tr:last-child { border-bottom: none; }
-    .challenge-table tbody td {
-      padding: 28px 16px 28px 0;
-      vertical-align: top;
+    .ch-card {
+      background: var(--white);
+      border-radius: 10px;
+      border: 1px solid var(--gray-mid);
+      padding: 28px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: box-shadow 0.2s, transform 0.2s;
     }
-    .challenge-table tbody td:last-child { padding-right: 0; text-align: right; }
-
+    .ch-card:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.10);
+      transform: translateY(-2px);
+    }
+    .ch-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .ch-card-label {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
     .ch-sport-tag {
       font-size: 0.62rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #94a3b8;
+      color: var(--gray);
       display: block;
-      margin-bottom: 4px;
     }
     .ch-name {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: var(--white);
+      font-family: var(--display);
+      font-size: 1.35rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--black);
       display: block;
-      margin-bottom: 6px;
     }
-    .ch-what {
-      font-size: 0.83rem;
-      color: #64748b;
-      font-style: italic;
-    }
-    .ch-desc {
-      font-size: 0.9rem;
-      color: #cbd5e1;
-      line-height: 1.65;
-      max-width: 340px;
+    .ch-target-block {
+      text-align: right;
+      flex-shrink: 0;
     }
     .ch-target {
       font-family: var(--display);
-      font-size: 2.2rem;
+      font-size: 2.6rem;
       font-weight: 900;
-      color: var(--ae-red-light);
+      color: var(--ae-red);
       display: block;
       line-height: 1;
     }
     .ch-unit {
-      font-size: 0.8rem;
-      color: #94a3b8;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray);
       display: block;
-      margin-top: 4px;
+      margin-top: 2px;
+    }
+    .ch-divider {
+      height: 1px;
+      background: var(--gray-mid);
+      margin-bottom: 16px;
+    }
+    .ch-desc {
+      font-size: 0.875rem;
+      color: #374151;
+      line-height: 1.7;
+      flex: 1;
+    }
+    .ch-footer {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--gray-mid);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .ch-attempts {
+      font-size: 0.75rem;
+      color: var(--gray);
       font-weight: 600;
     }
-    .ch-measured {
-      font-size: 0.75rem;
-      color: #64748b;
-      display: block;
-      margin-top: 8px;
+    .ch-link {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--ae-red);
+      text-decoration: none;
     }
+    .ch-link:hover { text-decoration: underline; }
 
-    @media (max-width: 640px) {
-      .challenge-table thead { display: none; }
-      .challenge-table tbody tr { display: block; padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
-      .challenge-table tbody td { display: block; padding: 4px 0; text-align: left !important; }
-      .ch-target { font-size: 1.3rem; }
+    /* dark mode adjustments for card section */
+    body.dark-mode .challenges-cards { background: #161618; }
+    body.dark-mode .ch-card {
+      background: #1c1c1e;
+      border-color: rgba(255,255,255,0.08);
     }
+    body.dark-mode .ch-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.4); }
+    body.dark-mode .ch-name { color: var(--white); }
+    body.dark-mode .ch-sport-tag { color: #94a3b8; }
+    body.dark-mode .ch-divider { background: rgba(255,255,255,0.08); }
+    body.dark-mode .ch-desc { color: #cbd5e1; }
+    body.dark-mode .ch-footer { border-color: rgba(255,255,255,0.08); }
+    body.dark-mode .ch-attempts { color: #94a3b8; }
+    body.dark-mode .ch-unit { color: #94a3b8; }
 
     /* SCHEDULE */
     .schedule-section { background: var(--gray-light); padding: 80px 24px; }
@@ -914,100 +958,117 @@
     </div>
   </section>
 
-  <!-- CHALLENGES -->
-  <section class="challenges-section" id="challenges">
+  <!-- CHALLENGES INTRO (dark) -->
+  <section class="challenges-intro" id="challenges">
     <div class="challenges-inner">
       <p class="section-label">Five challenges</p>
       <h2>Enter any one. Or all five.</h2>
       <p class="section-intro">Each challenge is a separate event with its own headline standard. There is no combined score — you compete in whichever challenges fit your athletic background.</p>
+    </div>
+  </section>
 
-      <table class="challenge-table">
-        <thead>
-          <tr>
-            <th>Challenge</th>
-            <th>What's measured</th>
-            <th style="text-align:right;">Headline target</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
+  <!-- CHALLENGE CARDS (light) -->
+  <section class="challenges-cards">
+    <div class="challenges-cards-inner">
+      <div class="ch-grid">
+
+        <!-- Tennis -->
+        <div class="ch-card">
+          <div class="ch-card-top">
+            <div class="ch-card-label">
               <span class="ch-sport-tag">🎾 Tennis</span>
               <span class="ch-name">Serve Speed</span>
-              <span class="ch-what">Fastest valid serve</span>
-            </td>
-            <td>
-              <p class="ch-desc">Radar-measured serve velocity. Athletes take 5 serves; fastest recorded speed counts — placement is irrelevant. The oldest athlete to reach 120 mph wins.</p>
-            </td>
-            <td>
+            </div>
+            <div class="ch-target-block">
               <span class="ch-target">120</span>
               <span class="ch-unit">mph</span>
-              <span class="ch-measured">Fastest valid serve</span>
-            </td>
-          </tr>
-          <tr>
-            <td>
+            </div>
+          </div>
+          <div class="ch-divider"></div>
+          <p class="ch-desc">Radar-measured serve velocity. 5 serves; fastest speed counts — placement is irrelevant. The oldest athlete to reach 120 mph wins.</p>
+          <div class="ch-footer">
+            <span class="ch-attempts">5 serves · fastest counts</span>
+          </div>
+        </div>
+
+        <!-- Football -->
+        <div class="ch-card">
+          <div class="ch-card-top">
+            <div class="ch-card-label">
               <span class="ch-sport-tag">🏈 Football</span>
               <span class="ch-name">Throw Distance</span>
-              <span class="ch-what">Longest valid airborne throw</span>
-            </td>
-            <td>
-              <p class="ch-desc">Regulation football thrown from the 50-yard line — a running approach is allowed. 3 attempts; best distance counts, measured to the nearest half-yard. The oldest athlete whose throw reaches the end zone wins.</p>
-            </td>
-            <td>
+            </div>
+            <div class="ch-target-block">
               <span class="ch-target">50</span>
               <span class="ch-unit">yards</span>
-              <span class="ch-measured">Longest valid throw</span>
-            </td>
-          </tr>
-          <tr>
-            <td>
+            </div>
+          </div>
+          <div class="ch-divider"></div>
+          <p class="ch-desc">Regulation football from the 50-yard line — a running approach is allowed. 3 attempts; best distance counts. The oldest athlete whose throw reaches the end zone wins.</p>
+          <div class="ch-footer">
+            <span class="ch-attempts">3 throws · best counts · ½ yd precision</span>
+          </div>
+        </div>
+
+        <!-- 40-Yard Dash -->
+        <div class="ch-card">
+          <div class="ch-card-top">
+            <div class="ch-card-label">
               <span class="ch-sport-tag">⚡ Speed</span>
               <span class="ch-name">40-Yard Dash</span>
-              <span class="ch-what">Fastest valid electronic time</span>
-            </td>
-            <td>
-              <p class="ch-desc">Electronic-timed sprint over 40 yards from a stationary start. REALFIT® timing equipment and certified officials. The oldest athlete to run 5.00 or faster wins.</p>
-              <p class="ch-desc" style="margin-top:8px;"><a href="https://scoremy40.com" target="_blank" rel="noopener" style="color:var(--ae-red-light);font-weight:600;text-decoration:none;">Try the ScoreMy40 simulator →</a> <span style="color:rgba(255,255,255,0.45);font-size:0.85em;">See how your time stacks up</span></p>
-            </td>
-            <td>
+            </div>
+            <div class="ch-target-block">
               <span class="ch-target">5.00</span>
               <span class="ch-unit">seconds</span>
-              <span class="ch-measured">Fastest valid time</span>
-            </td>
-          </tr>
-          <tr>
-            <td>
+            </div>
+          </div>
+          <div class="ch-divider"></div>
+          <p class="ch-desc">Electronic-timed sprint over 40 yards from a stationary start. REALFIT® timing equipment and certified officials. The oldest athlete to run 5.00 or faster wins.</p>
+          <div class="ch-footer">
+            <span class="ch-attempts">2 attempts · fastest counts</span>
+            <a href="https://scoremy40.com" target="_blank" rel="noopener" class="ch-link">Try the simulator →</a>
+          </div>
+        </div>
+
+        <!-- Golf -->
+        <div class="ch-card">
+          <div class="ch-card-top">
+            <div class="ch-card-label">
               <span class="ch-sport-tag">🏌️ Golf</span>
               <span class="ch-name">Drive Distance</span>
-              <span class="ch-what">Longest valid drive</span>
-            </td>
-            <td>
-              <p class="ch-desc">Carry distance measured by indoor launch monitor. Any club allowed — 6 swings, best carry counts. The oldest athlete to carry 300 yards wins.</p>
-            </td>
-            <td>
+            </div>
+            <div class="ch-target-block">
               <span class="ch-target">300</span>
               <span class="ch-unit">yards</span>
-              <span class="ch-measured">Longest valid drive</span>
-            </td>
-          </tr>
-          <tr>
-            <td>
+            </div>
+          </div>
+          <div class="ch-divider"></div>
+          <p class="ch-desc">Carry distance measured by indoor launch monitor. Any club allowed — 6 swings, best carry counts. The oldest athlete to carry 300 yards wins.</p>
+          <div class="ch-footer">
+            <span class="ch-attempts">6 swings · best carry counts</span>
+          </div>
+        </div>
+
+        <!-- Baseball -->
+        <div class="ch-card">
+          <div class="ch-card-top">
+            <div class="ch-card-label">
               <span class="ch-sport-tag">⚾ Baseball</span>
               <span class="ch-name">Pitch Speed</span>
-              <span class="ch-what">Fastest valid pitch</span>
-            </td>
-            <td>
-              <p class="ch-desc">Radar-measured pitching velocity. Athletes take 5 pitches; fastest recorded speed counts. The oldest athlete to reach 80 mph wins.</p>
-            </td>
-            <td>
+            </div>
+            <div class="ch-target-block">
               <span class="ch-target">80</span>
               <span class="ch-unit">mph</span>
-              <span class="ch-measured">Fastest valid pitch</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </div>
+          </div>
+          <div class="ch-divider"></div>
+          <p class="ch-desc">Radar-measured pitching velocity from regulation distance. 5 pitches; fastest speed counts. The oldest athlete to reach 80 mph wins.</p>
+          <div class="ch-footer">
+            <span class="ch-attempts">5 pitches · fastest counts</span>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
