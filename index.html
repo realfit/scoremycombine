@@ -354,6 +354,108 @@
     .btn-white:hover { background: #e2e8f0; }
     .featured-detail { font-size: 0.85rem; color: #475569; }
 
+    /* CONTACT MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 20px;
+      background: none; border: none;
+      font-size: 1.4rem; cursor: pointer;
+      color: #6b7280; line-height: 1;
+    }
+    .modal-close:hover { color: var(--black); }
+    .modal h2 {
+      font-family: var(--font);
+      font-size: 1.5rem;
+      font-weight: normal;
+      margin: 0 0 6px;
+      color: var(--black);
+    }
+    .modal-sub {
+      font-size: 0.88rem;
+      color: var(--gray);
+      margin: 0 0 28px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    .form-group input,
+    .form-group textarea {
+      padding: 10px 12px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 4px;
+      font-size: 0.92rem;
+      font-family: var(--font);
+      color: var(--black);
+      background: #f8fafc;
+      transition: border-color 0.15s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--blue); background: var(--white); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-submit {
+      width: 100%;
+      padding: 13px;
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--blue-dark); }
+    .form-submit:disabled { opacity: 0.6; cursor: default; }
+    .form-success {
+      text-align: center;
+      padding: 24px 0;
+    }
+    .form-success h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    .form-success p { font-size: 0.9rem; color: var(--gray); }
+
     /* CONTACT */
     .contact {
       background: var(--blue-dark);
@@ -424,7 +526,7 @@
         <a href="/aging-evolution">AE Combine 2027</a>
         <a href="https://demo.scoremycombine.com">Demo Combine</a>
         <a href="https://realfit.com">REALFIT.com</a>
-        <a href="mailto:combines@realfit.com" class="nav-cta">Get started</a>
+        <a href="#contact" class="nav-cta" data-contact>Get started</a>
       </nav>
     </div>
   </header>
@@ -435,7 +537,7 @@
     <h1>Your organization.<br>Your tests. Your <em>combine.</em></h1>
     <p class="hero-sub">A combine is a collection of tests organized around your goals — competed individually or as a complete set. REALFIT® provides everything you need to develop, measure, and publish one: your branding, your URL, your scoreboard, and a certified open standard behind every result.</p>
     <div class="hero-actions">
-      <a href="mailto:combines@realfit.com" class="btn-primary">Talk to us about your combine</a>
+      <a href="#contact" class="btn-primary" data-contact>Talk to us about your combine</a>
       <a href="#how-it-works" class="btn-ghost">See how it works ↓</a>
     </div>
   </section>
@@ -675,7 +777,7 @@
   <section class="contact">
     <h2>Let's build your combine.</h2>
     <p>Tell us about your organization and what you want to measure. We'll follow up within two business days.</p>
-    <a href="mailto:combines@realfit.com" class="contact-email">combines@realfit.com</a>
+    <a href="#contact" class="contact-email" data-contact>Contact us about your combine →</a>
   </section>
 
   <!-- FOOTER -->
@@ -690,6 +792,97 @@
       </div>
     </div>
   </footer>
+
+  <!-- CONTACT MODAL -->
+  <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+      <div id="modalForm">
+        <h2 id="modalTitle">Let's talk about your combine.</h2>
+        <p class="modal-sub">Tell us about your organization and what you want to measure. We'll follow up within two business days.</p>
+        <form id="contactForm" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-name">Your name</label>
+              <input type="text" id="cf-name" name="name" required placeholder="Jane Smith">
+            </div>
+            <div class="form-group">
+              <label for="cf-org">Organization</label>
+              <input type="text" id="cf-org" name="organization" placeholder="Your org or event">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cf-email">Email address</label>
+            <input type="email" id="cf-email" name="email" required placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="cf-message">Tell us about your combine</label>
+            <textarea id="cf-message" name="message" placeholder="What do you want to measure? How many participants? Any timing or format in mind?"></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="formSubmitBtn">Send message →</button>
+        </form>
+      </div>
+      <div class="form-success" id="modalSuccess" hidden>
+        <div style="font-size:2rem; margin-bottom:12px;">✓</div>
+        <h3>Message sent.</h3>
+        <p>We'll be in touch within two business days at the email you provided.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('contactModal');
+    const modalClose = document.getElementById('modalClose');
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('formSubmitBtn');
+    const modalSuccess = document.getElementById('modalSuccess');
+    const modalFormEl = document.getElementById('modalForm');
+
+    function openModal() {
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => document.getElementById('cf-name').focus(), 50);
+    }
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Wire all CTAs to open the modal
+    document.querySelectorAll('[data-contact]').forEach(el => {
+      el.addEventListener('click', e => { e.preventDefault(); openModal(); });
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    // Formspree AJAX submit
+    contactForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          modalFormEl.hidden = true;
+          modalSuccess.hidden = false;
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send message →';
+          alert('Something went wrong. Please email combines@realfit.com directly.');
+        }
+      } catch {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send message →';
+        alert('Something went wrong. Please email combines@realfit.com directly.');
+      }
+    });
+  </script>
 
 </body>
 </html>
