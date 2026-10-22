@@ -873,7 +873,11 @@
         const res = await fetch(contactForm.action, {
           method: 'POST',
           body: JSON.stringify(data),
-          headers: { 'Content-Type': 'application/json' }
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer sb_publishable_LHsiVA3k1IK3nvhcQNKnEg_QKPhrGr8',
+            'apikey': 'sb_publishable_LHsiVA3k1IK3nvhcQNKnEg_QKPhrGr8',
+          }
         });
         if (res.ok) {
           modalFormEl.hidden = true;
