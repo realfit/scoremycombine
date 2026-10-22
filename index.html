@@ -800,7 +800,7 @@
       <div id="modalForm">
         <h2 id="modalTitle">Let's talk about your combine.</h2>
         <p class="modal-sub">Tell us about your organization and what you want to measure. We'll follow up within two business days.</p>
-        <form id="contactForm" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+        <form id="contactForm" action="https://awtsmtevdzgnxyrhkbcy.supabase.co/functions/v1/contact-form" method="POST">
           <div class="form-row">
             <div class="form-group">
               <label for="cf-name">Your name</label>
@@ -863,10 +863,16 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
       try {
+        const data = {
+          name:         document.getElementById('cf-name').value.trim(),
+          organization: document.getElementById('cf-org').value.trim(),
+          email:        document.getElementById('cf-email').value.trim(),
+          message:      document.getElementById('cf-message').value.trim(),
+        };
         const res = await fetch(contactForm.action, {
           method: 'POST',
-          body: new FormData(contactForm),
-          headers: { 'Accept': 'application/json' }
+          body: JSON.stringify(data),
+          headers: { 'Content-Type': 'application/json' }
         });
         if (res.ok) {
           modalFormEl.hidden = true;
