@@ -819,6 +819,7 @@
             <label for="cf-message">Tell us about your combine</label>
             <textarea id="cf-message" name="message" placeholder="What do you want to measure? How many participants? Any timing or format in mind?"></textarea>
           </div>
+          <div id="formError" hidden style="color:#dc2626;font-size:0.82rem;margin-bottom:8px;padding:8px 12px;background:#fef2f2;border-radius:4px;"></div>
           <button type="submit" class="form-submit" id="formSubmitBtn">Send message →</button>
         </form>
       </div>
@@ -878,14 +879,17 @@
           modalFormEl.hidden = true;
           modalSuccess.hidden = false;
         } else {
+          const errText = await res.text().catch(() => '(no body)');
           submitBtn.disabled = false;
           submitBtn.textContent = 'Send message →';
-          alert('Something went wrong. Please email combines@realfit.com directly.');
+          document.getElementById('formError').textContent = `Error ${res.status}: ${errText}`;
+          document.getElementById('formError').hidden = false;
         }
-      } catch {
+      } catch(err) {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Send message →';
-        alert('Something went wrong. Please email combines@realfit.com directly.');
+        document.getElementById('formError').textContent = `Network error: ${err.message}`;
+        document.getElementById('formError').hidden = false;
       }
     });
   </script>
